@@ -4,7 +4,7 @@ var option ={
     isStatic:false,
   restitution:0.3,
   friction:1.0,
-   density:1.2
+   density:0.4
 }
 this.body=Bodies.circle(x,y,Radius,option);
 this.Radius=Radius;
@@ -13,10 +13,14 @@ this.Radius=Radius;
 }
 display(){
     var pos=this.body.position
-    fill("blue");
+    var angle=this.body.angle
+    push();
+   translate(pos.x,pos.y);
+   rotate(angle);
+   // fill("blue");
    imageMode(CENTER);
-   image(this.image,pos.x,pos.y,this.Radius);
-
+   image(this.image,0,0,this.Radius);
+    pop();
 }
 
 }
